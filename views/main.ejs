@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="homestyle.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="headbar">
+        <img class="logo" src="images/circle-up-logo.png" alt="no logo" height="50" width="180">
+        <!-- <input class="search-bar" placeholder="Search For Others" type="text" name=""> -->
+
+        <button class="logout-btn">Logout</button>
+        <button class="create-post-btn">Create Post</button>
+        <img class="profile-pic"
+            src="https://th.bing.com/th?q=Admin+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=strict&t=1&mw=247"
+            alt="" height="50" width="50">
+    </div>
+    <div class="main">
+        <div class="tab">
+            <div class="admin">
+                <p class="tab-content-h1">Admin</p>
+            </div>
+            <div class="home">
+                <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
+                <a class="tab-content" onclick="window.location.href = '/register';">Register</a>
+            </div>
+            <div class="add-post">
+                <i class="fa fa-compass" aria-hidden="true"></i>
+                <a class="tab-content" onclick="window.location.href = '/login';">Login</a>
+            </div>
+            <div class="edit-profile">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <a class="tab-content" onclick="window.location.href = '/updateProfile'">Edit Profile</a>
+            </div>
+            <div class="main-profile">
+                <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                <a class="tab-content" onclick="window.location.href = '/Logout'">Logout</a>
+            </div>
+            <!-- <div class="change-password">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <a href="#" class="tab-content">Change Password</a>
+            </div> -->
+            <button class="btn-create-post" id="createPostButton">Create Post</button>
+        </div>
+
+        <h2>Your Posts :</h2>
+        <% if (posts.length > 0) { %>
+            <div class="main-content">
+                <% posts.forEach((post) => { %>
+                    <div class="top-content">
+                        <img class="top-content-img" src="images/female-prof.png" alt="" width="70" height="60">
+                        <h1 class="top-content-h1">admin</h1>
+                        <i class="fa fa-pencil main-icons-1" aria-hidden="true"></i>
+                        <i class="fa fa-trash main-icons-2" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="pic-content" style="margin-bottom: 30px; height: 420px;">
+                        <li style="list-style: none; text-align: left;">Posted by: <%= post.userId %></li>
+                        <p style="text-align: left;">Description: <%= post.content %></p>
+                        <% if (post.imageUrl) { %>
+                            <img class="img-content" style="margin-top: 40px; margin-left: 2px; margin-bottom: 20px;" src="<%= post.imageUrl %>" alt="post-image" width="400"
+                                height="200">
+                        <% } %>
+                        <button style="margin-bottom: 20px;" id="updatePost" onclick="window.location.href = '/updatePost';">Update post</button>
+                        <button id="deletePost" onclick="window.location.href = '/deletePost';">Delete post</button>
+                    
+                        <h3 style="text-align: left;">Comments:</h3>
+                    <% post.comments.forEach((comment) => { %>
+                        <p><%= comment.content %> - <%= comment.createdAt %></p>
+                    <% }); %>
+                    <button id="createComment" onclick="window.location.href = '/comments';" style="margin-left: -350px; border-radius: 8px; padding: 5px 10px;">Create Comment</button>
+                
+                    </div>
+
+                <% }); %>
+            </div>
+
+            <script src="https://kit.fontawesome.com/1e3bf3432d.js" crossorigin="anonymous"></script>
+            <script>
+                function myFunction(x) {
+                    x.classList.toggle("fa-heart-o");
+                }
+                function myCommentFunction() {
+                    var popup = document.getElementById("myPopup");
+                    popup.classList.toggle("show");
+                }
+            </script>
+        <% } else { %>
+            <p>No posts found.</p>
+        <% } %>
+
+        <hr>
+
+        <script>
+            const createPostButton = document.getElementById('createPostButton');
+            createPostButton.addEventListener('click', () => {
+                window.location.href = '/post';
+            });
+        </script>
+    </div>
+</body>
+
+</html>

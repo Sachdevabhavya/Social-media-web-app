@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <style>
+        body{
+            padding: 0 150px;
+            background: rgb(238,231,226);
+            background: linear-gradient(197deg, rgba(238,231,226,1) 50%, rgba(139,60,127,0.804359243697479) 75%, rgba(58,24,50,0.8) 95%);
+        }
+
+        form{
+            width: auto;
+            height: 200px;
+            align-items: center;
+            gap: 20px;
+            margin: 100px 0;
+            background: rgb(238,231,226);
+            background: linear-gradient(197deg, rgba(238,231,226,1) 10%, rgba(139,60,127,1) 40%, rgba(58,24,50,1) 80%);
+            padding: 40px 0 40px;
+            border-radius: 20px;
+            border-style: solid;
+            border-width: 10px;
+            background: rgb(238,231,226);
+            background: linear-gradient(197deg, rgba(238,231,226,1) 10%, rgba(139,60,127,1) 40%, rgba(58,24,50,1) 80%);
+            padding: 40px 0 40px;
+            border-radius: 20px;
+            border-style: solid;
+            border-width: 10px;
+            border-color: ghostwhite;
+        }
+
+        input{
+            padding: 10px 20px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        button{
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="/register" method="POST" style="display: flex; flex-direction: column;">
+        <input type="text" name="name" placeholder="Enter your name">
+        <input type="email" name="email" placeholder="Enter your email">
+        <input type="password" name="password" placeholder="Enter your password">
+        
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

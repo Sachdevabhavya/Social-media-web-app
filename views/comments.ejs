@@ -1,0 +1,29 @@
+<!-- comments.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    <ul>
+        <% comments.forEach((comment) => { %>
+            <li><%= comment.content %> - <%= comment.createdAt %></li>
+        <% }); %>
+    </ul>
+    <form action="/comments" method="POST">
+        <input type="text" name="content" placeholder="Enter your comment">
+        <button type="submit" id="submitComment">Submit Comment</button>
+    </form>
+
+    <!-- <script>
+        const createComment = document.getElementById('createComment');
+        createPostButton.addEventListener('click', () => {
+            window.location.href = '/main';
+        });
+    </script> -->
+</body>
+</html>
+

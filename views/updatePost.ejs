@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Post</title>
+</head>
+<body>
+  <h1>Update Post</h1>
+  
+  <form action="/posts/<%= post._id %>" method="POST">
+    <label for="content">Content:</label>
+    <input type="text" id="content" name="content" value="<%= post.content %>" required>
+    <br>
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" name="imageUrl" value="<%= post.imageUrl %>">
+    <br>
+    
+    <button type="submit">Update Post</button>
+  </form>
+  
+  <button onclick="window.location.href = '/';">Back to Main Page</button>
+</body>
+</html>
+
