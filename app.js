@@ -418,7 +418,7 @@ app.listen(3000 , ()=>{
     console.log("running on local host 3000");
 });
 
-mongoose.connect("mongodb+srv://sachbhavya:bhavya@cluster0.8cudxjs.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://username:password@cluster0.8cudxjs.mongodb.net/?retryWrites=true&w=majority")
 .then(()=>{
     console.log("connected to database sucessfully");
 }).catch((err)=>{
